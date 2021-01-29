@@ -1,0 +1,14 @@
+﻿@model IdentityRole
+@{
+    ViewData["Title"] = "DeleteRole";
+}
+
+<h1>DeleteRole</h1>
+
+<h3> Voulez-vous vraiment supprimmer le rôle : @Model.Name</h3>
+
+<form asp-action="DeleteRole" asp-controller="Account" method="post">
+    <input type="submit" value="Supprimer" class="btn btn-danger" />
+    <a asp-action="RolesList" asp-controller="Account" class="btn btn-primary">Annuler</a>
+</form>
+

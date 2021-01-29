@@ -1,0 +1,14 @@
+﻿@model IEnumerable<Menu>
+
+<ul class="menu-area-main">
+
+    @foreach (var item in Model)
+    {
+        <li class="active"> <a href="@item.MenuUrl">@item.MenuTitle</a> </li>
+    }
+
+    <li class="last">
+        <a href="#"><img src="~/images/search_icon.png" alt="icon" /></a>
+    </li>
+
+</ul>

@@ -1,0 +1,20 @@
+﻿@model Product
+@{
+    ViewData["Title"] = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Page du Suppression</h1>
+
+<h2 class="alert alert-danger">
+    Voulez-vous vraiment supprimer le produit :
+    <span class="test-danger">@Model.ProductName</span>
+    ?
+</h2>
+
+<form asp-action="Delete" asp-controller="Products" method="post">
+    @Html.HiddenFor(m => m.Id)
+    <input type="submit" value="Confirmer La suppression" class="btn btn-danger"/>
+    <a asp-action="Index" asp-controller="Products" class="btn btn-primary">cancel</a>
+</form>
+

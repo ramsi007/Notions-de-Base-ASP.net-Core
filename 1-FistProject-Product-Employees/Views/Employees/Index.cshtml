@@ -1,0 +1,41 @@
+﻿@model IEnumerable<Employee>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Liste des Employeés</h1>
+
+<div>
+
+</div>
+<div class="text-right">
+    <a asp-action="Create" asp-controller="Employees" class="btn btn-outline-dark">+ Ajouter un Employé</a>
+</div>
+<p></p>
+<table class="table table-hover table-bordered table-triped">
+    <tr>
+        <th>@Html.DisplayNameFor(x => x.EmployeeId) </th>
+        <th>@Html.DisplayNameFor(x => x.EmployeeName) </th>
+        <th>@Html.DisplayNameFor(x => x.Salary) </th>
+        <th>@Html.DisplayNameFor(x => x.Email) </th>
+        <th>@Html.DisplayNameFor(x => x.BirthDate) </th>
+        <th>Opérations </th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+    <tr>
+        <td>@Html.DisplayFor(x => item.EmployeeId)</td>
+        <td>@Html.DisplayFor(x => item.EmployeeName)</td>
+        <td>@Html.DisplayFor(x => item.Salary)</td>
+        <td>@Html.DisplayFor(x => item.Email)</td>
+        <td>@Html.DisplayFor(x => item.BirthDate)</td>
+        <td>
+            <a asp-action="Details" asp-controller="Employees" asp-route-id="@item.EmployeeId" class="btn btn-outline-success">Plus ...</a>
+            <a asp-action="Edit" asp-controller="Employees" asp-route-id="@item.EmployeeId" class="btn btn-outline-info">Modifier</a>
+            <a asp-action="Delete" asp-controller="Employees" asp-route-id="@item.EmployeeId" class="btn btn-danger">Supprimer</a>
+        </td>
+    </tr>
+    }
+</table>
